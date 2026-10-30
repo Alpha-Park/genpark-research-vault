@@ -1,14 +1,53 @@
 # genpark-research-vault
 
-Terminal-native multimodal AI research assistant.
+[![OpenClaw](https://img.shields.io/badge/OpenClaw-Ecosystem-blue.svg)](https://github.com/alphaparkinc/genpark-research-vault)
+[![Zero Dependency](https://img.shields.io/badge/Dependencies-Standard_Library_Only-success.svg)](https://www.python.org/)
+[![MCP Ready](https://img.shields.io/badge/MCP-Model_Context_Protocol-orange.svg)](https://modelcontextprotocol.io/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Production Grade](https://img.shields.io/badge/Status-Production_Ready-brightgreen.svg)](https://github.com/Alpha-Park/genpark-research-vault)
 
-Stop paying for closed SaaS apps. This is a terminal-native, open-source alternative to **Youdao Baoku (网易有道宝库)**.
+Production-grade agentic skill designed for the OpenClaw and GenPark swarms. Built strictly using the Python standard library with zero external runtime dependencies.
 
-Drop any PDF, web link, or image into your terminal. Your agent instantly parses the multimodal data, cross-references it, and builds a structured, searchable research database locally.
+## Architecture & Flow
 
-## Usage
-```bash
-openclaw use genpark-research-vault
+```mermaid
+flowchart TD
+    A[Agent Planner / Host] -->|Tool Invocation| B(MCP Server Entrypoint)
+    B --> C[GenParkResearchVault]
+    C --> D[Deterministic Mathematical Algorithms]
+    D --> E[Validated JSON Response]
+    E -->|Structured Payload| A
 ```
 
-*Built by the GenPark open-source community.*
+## Features
+
+- **Standard Library Only**: 100% Python standard library with no wheels, C-extensions, or pip requirements.
+- **Model Context Protocol (MCP)**: Native FastMCP JSON-RPC interface for seamless tool-calling in Claude, Cursor, and OpenClaw.
+- **Algorithmic Rigor**: Rigorous closed-form mathematical equations and quantitative deterministic metrics.
+- **Multi-Tenant Mirrored**: Dual-deployed across `@alphaparkinc` and `@Alpha-Park`.
+
+## Installation & Usage
+
+```bash
+git clone https://github.com/Alpha-Park/genpark-research-vault.git
+cd genpark-research-vault
+python example_usage.py
+```
+
+## MCP Configuration
+
+Add to your `claude_desktop_config.json`:
+```json
+{
+  "mcpServers": {
+    "genpark-research-vault": {
+      "command": "python",
+      "args": ["-m", "genpark-research-vault.mcp_server"]
+    }
+  }
+}
+```
+
+## License
+
+MIT License. See [LICENSE](LICENSE) for details.
