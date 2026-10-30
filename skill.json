@@ -1,0 +1,10 @@
+{
+  "name": "genpark-research-vault",
+  "version": "1.0.0",
+  "description": "GenPark Research Vault - Academic citation impact (h-index, i10-index, g-index), bibliographic coupling cosine similarity, and scientific keyphrase extraction with zero dependencies.",
+  "tools": [
+    "calculate_h_index_and_citation_metrics",
+    "compute_bibliographic_coupling_cosine",
+    "extract_latent_keyphrase_importance"
+  ]
+}
