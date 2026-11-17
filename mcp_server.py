@@ -8,18 +8,9 @@ import json
 from typing import Dict, Any, List
 from client import GenParkResearchVault
 
-try:
-    from mcp.server.fastmcp import FastMCP
-    mcp = FastMCP("genpark-research-vault")
-except ImportError:
-    class MockFastMCP:
-        def __init__(self, name):
-            self.name = name
-        def tool(self):
-            def decorator(f):
-                return f
-            return decorator
-    mcp = MockFastMCP("genpark-research-vault")
+from mcp.server.fastmcp import FastMCP
+
+mcp = FastMCP('genpark-research-vault')
 
 vault = GenParkResearchVault()
 
@@ -56,8 +47,7 @@ def extract_latent_keyphrase_importance(
     return json.dumps(res, indent=2)
 
 def main():
-    print("Testing Research Vault:")
-    print(calculate_h_index_and_citation_metrics([55, 32, 28, 14, 10, 8, 3, 1]))
+    mcp.run(transport="stdio")
 
 if __name__ == "__main__":
     main()
